@@ -1,6 +1,6 @@
-local discipline = require("craftzdog.discipline")
+-- local discipline = require("craftzdog.discipline")
 
-discipline.cowboy()
+-- discipline.cowboy()
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -11,16 +11,17 @@ keymap("n", "<Leader>i", ":Telescope import<Return>")
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
 
--- Delete a word backwards
-keymap("n", "dw", 'vb"_d')
-
--- Select all
-keymap("n", "<C-a>", "gg<S-v>G")
-
 -- Jumplist
 keymap("n", "<C-m>", "<C-i>", opts)
 
 keymap("n", "<C-f>", "<leader>/", opts)
+
+-- get command
+
+keymap("n", "<leader>ga", ":!git add")
+keymap("n", "<leader>gP", ":!git push<Return>")
+keymap("n", "<leader>gp", ":!git pull<Return>")
+keymap("n", "<leader>gc", ":!git commit -m ")
 
 -- New tab
 keymap("n", "<leader><tab>n", ":tabedit<Return>")
