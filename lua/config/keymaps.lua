@@ -1,40 +1,23 @@
--- local discipline = require("craftzdog.discipline")
-
--- discipline.cowboy()
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("n", "x", '"_x')
 keymap("n", "<Leader>i", ":Telescope import<Return>")
 -- Increment/decrement
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
 
--- Jumplist
-keymap("n", "<C-m>", "<C-i>", opts)
-
-keymap("n", "<C-f>", "<leader>/", opts)
-
 -- get command
-
 keymap("n", "<leader>ga", ":!git add")
 keymap("n", "<leader>gP", ":!git push<Return>")
 keymap("n", "<leader>gp", ":!git pull<Return>")
-keymap("n", "<leader>gc", ":!git commit -m ")
+keymap("n", "<leader>gc", ":!git commit -m '<Focus>'")
 
 -- New tab
 keymap("n", "<leader><tab>n", ":tabedit<Return>")
 keymap("n", "<tab>", ":tabnext<Return>", opts)
 keymap("n", "<s-tab>", ":tabprev<Return>", opts)
--- copy between
-keymap("n", "<C-c>", "yi")
-keymap("n", "<C-x>", "di")
-keymap("n", "<leader>c`", "y%")
--- duplicate line
-keymap("n", "<C-d>", "yyp", opts)
--- Disable continuations
-keymap("n", "<leader>es", "ciw")
+
 -- save
 keymap("n", "<C-s>", ":w<Return>", opts)
 -- close
