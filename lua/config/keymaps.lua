@@ -1,4 +1,3 @@
-
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -7,6 +6,7 @@ keymap("n", "<Leader>i", ":Telescope import<Return>")
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
 
+keymap("n", "<M-tab>", ":bnext<Return>")
 -- get command
 keymap("n", "<leader>ga", ":!git add")
 keymap("n", "<leader>gP", ":!git push<Return>")
@@ -46,3 +46,16 @@ end, opts)
 keymap("n", "<leader>r", function()
   require("craftzdog.utils").replaceHexWithHSL()
 end)
+
+-- VISUAL MODE
+keymap("v", "J", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
+
+keymap("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected line upyi
+-- Stay in indent mode
+-- keymap("v", "<", "<gv^", opts)
+-- keymap("v", ">", ">gv^", opts)
+--
+-- -- Move text up and down
+-- keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+-- keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+-- keymap("v", "p", '"_dP', opts)
