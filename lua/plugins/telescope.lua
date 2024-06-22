@@ -1,52 +1,4 @@
 return {
-  {
-    enabled = false,
-    "folke/flash.nvim",
-    ---@type Flash.Config
-    opts = {
-      search = {
-        forward = true,
-        multi_window = false,
-        wrap = false,
-        incremental = true,
-      },
-    },
-  },
-
-  {
-    "echasnovski/mini.hipatterns",
-    event = "BufReadPre",
-    opts = {
-      highlighters = {
-        hsl_color = {
-          pattern = "hsl%(%d+,? %d+%%?,? %d+%%?%)",
-          group = function(_, match)
-            local utils = require("solarized-osaka.hsl")
-            --- @type string, string, string
-            local nh, ns, nl = match:match("hsl%((%d+),? (%d+)%%?,? (%d+)%%?%)")
-            --- @type number?, number?, number?
-            local h, s, l = tonumber(nh), tonumber(ns), tonumber(nl)
-            --- @type string
-            local hex_color = utils.hslToHex(h, s, l)
-            return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
-          end,
-        },
-      },
-    },
-  },
-
-  {
-    "dinhhuy258/git.nvim",
-    event = "BufReadPre",
-    opts = {
-      keymaps = {
-        -- Open blame window
-        blame = "<Leader>gb",
-        -- Open file/folder in git repository
-        browse = "<Leader>go",
-      },
-    },
-  },
 
   {
     "telescope.nvim",
@@ -57,7 +9,9 @@ return {
       },
       "nvim-telescope/telescope-file-browser.nvim",
     },
+
     keys = {
+
       {
         "<leader>fP",
         function()
@@ -67,6 +21,7 @@ return {
         end,
         desc = "Find Plugin File",
       },
+
       {
         ";f",
         function()
@@ -78,6 +33,7 @@ return {
         end,
         desc = "Lists files in your current working directory, respects .gitignore",
       },
+
       {
         ";r",
         function()
@@ -88,6 +44,7 @@ return {
         end,
         desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
       },
+
       {
         "\\\\",
         function()
@@ -96,6 +53,7 @@ return {
         end,
         desc = "Lists open buffers",
       },
+
       {
         ";t",
         function()
@@ -104,6 +62,7 @@ return {
         end,
         desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
       },
+
       {
         ";;",
         function()
@@ -112,6 +71,7 @@ return {
         end,
         desc = "Resume the previous telescope picker",
       },
+
       {
         ";e",
         function()
@@ -120,6 +80,7 @@ return {
         end,
         desc = "Lists Diagnostics for all open buffers or a specific buffer",
       },
+
       {
         ";s",
         function()
@@ -128,6 +89,7 @@ return {
         end,
         desc = "Lists Function names, variables, from Treesitter",
       },
+
       {
         "sf",
         function()
@@ -151,6 +113,7 @@ return {
         desc = "Open File Browser with the path of the current buffer",
       },
     },
+
     config = function(_, opts)
       local telescope = require("telescope")
       local actions = require("telescope.actions")
@@ -166,6 +129,7 @@ return {
           n = {},
         },
       })
+
       opts.pickers = {
         diagnostics = {
           theme = "ivy",
@@ -175,6 +139,7 @@ return {
           },
         },
       }
+
       opts.extensions = {
         file_browser = {
           theme = "dropdown",
@@ -205,6 +170,7 @@ return {
           },
         },
       }
+
       telescope.setup(opts)
 
       require("telescope").load_extension("fzf")
