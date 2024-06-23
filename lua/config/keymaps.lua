@@ -8,10 +8,9 @@ keymap("n", "-", "<C-x>")
 
 keymap("n", "<M-tab>", ":bnext<Return>")
 -- get command
-keymap("n", "<leader>ga", ":!git add")
 keymap("n", "<leader>gP", ":!git push<Return>")
 keymap("n", "<leader>gp", ":!git pull<Return>")
-keymap("n", "<leader>gc", ":!git commit -m '<Focus>'")
+keymap("n", "<leader>gc", ":!git commit -m 'input{}'")
 
 -- New tab
 keymap("n", "<leader><tab>n", ":tabedit<Return>")
@@ -22,7 +21,7 @@ keymap("n", "<s-tab>", ":tabprev<Return>", opts)
 keymap("n", "<C-s>", ":w<Return>", opts)
 -- close
 keymap("n", "<C-q>", ":qa<Return>", opts)
--- vplit window
+-- split window
 keymap("n", "<leader>wv", ":split<Return>", opts)
 keymap("n", "<leader>wh", ":vsplit<Return>", opts)
 
@@ -33,10 +32,14 @@ keymap("n", "<leader><down>", "<C-w>j")
 keymap("n", "<leader><right>", "<C-w>l")
 
 -- Resize window
-keymap("n", "<C-w><left>", "<C-w><")
-keymap("n", "<C-w><right>", "<C-w>>")
-keymap("n", "<C-w><up>", "<C-w>+")
-keymap("n", "<C-w><down>", "<C-w>-")
+keymap("n", "<M-left>", "<C-w><")
+keymap("n", "<M-right>", "<C-w>>")
+keymap("n", "<M-up>", "<C-w>+")
+keymap("n", "<M-down>", "<C-w>-")
+
+-- uppercase
+keymap("n", "su", 'gUi"')
+keymap("n", "sl", 'gui"')
 
 -- Diagnostics
 keymap("n", "<C-j>", function()
@@ -49,13 +52,4 @@ end)
 
 -- VISUAL MODE
 keymap("v", "J", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
-
 keymap("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected line upyi
--- Stay in indent mode
--- keymap("v", "<", "<gv^", opts)
--- keymap("v", ">", ">gv^", opts)
---
--- -- Move text up and down
--- keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
--- keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
--- keymap("v", "p", '"_dP', opts)
