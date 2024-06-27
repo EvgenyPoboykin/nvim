@@ -18,7 +18,7 @@ keymap("n", "<tab>", ":tabnext<Return>", opts)
 keymap("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- save
-keymap("n", "<C-s>", ":w<Return>", opts)
+keymap("n", "<C-w>", ":w<Return>", opts)
 -- close
 keymap("n", "<C-q>", ":qa<Return>", opts)
 -- split window
@@ -45,6 +45,10 @@ keymap("n", "sl", 'gui"')
 keymap("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+keymap("n", "[c", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })
 
 keymap("n", "<leader>r", function()
   require("craftzdog.utils").replaceHexWithHSL()
