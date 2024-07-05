@@ -5,13 +5,8 @@ keymap("n", "<Leader>i", ":Telescope import<Return>")
 -- Increment/decrement
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
-
 keymap("n", "<M-tab>", ":bnext<Return>")
--- get command
-keymap("n", "<leader>gP", ":!git push<Return>")
-keymap("n", "<leader>gp", ":!git pull<Return>")
-keymap("n", "<leader>gc", ":!git commit -m 'input{}'")
-
+--
 -- New tab
 keymap("n", "<leader><tab>n", ":tabedit<Return>")
 keymap("n", "<tab>", ":tabnext<Return>", opts)
@@ -57,3 +52,5 @@ end)
 -- VISUAL MODE
 keymap("v", "J", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
 keymap("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected line upyi
+
+-- git commands
