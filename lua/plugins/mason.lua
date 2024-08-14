@@ -17,6 +17,8 @@ return {
         "gomodifytags",
         "impl",
         "delve",
+        "java-debug-adapter",
+        "java-test",
       })
 
       table.insert(opts.ensure_installed, "js-debug-adapter")

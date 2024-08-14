@@ -11,9 +11,11 @@ keymap("n", "<M-tab>", ":bnext<Return>")
 keymap("n", "<leader><tab>n", ":tabedit<Return>")
 keymap("n", "<tab>", ":tabnext<Return>", opts)
 keymap("n", "<s-tab>", ":tabprev<Return>", opts)
-
+-- delete all buffers
+keymap("n", "<leader>ba", ":%bd<Return>", opts)
 -- save
 keymap("n", "<C-w>", ":w<Return>", opts)
+keymap("n", "<C-S-s>", ":w<Return><leader>bd", opts)
 -- close
 keymap("n", "<C-q>", ":qa<Return>", opts)
 -- split window
