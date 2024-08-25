@@ -70,7 +70,12 @@ return {
             ".idea",
             ".DS_Store",
           },
-          never_show = {},
+          never_show = {
+            ".DS_Store",
+            "node_modules",
+            "test-results",
+            ".vscode",
+          },
         },
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
